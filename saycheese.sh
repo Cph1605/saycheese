@@ -101,11 +101,11 @@ fi
 
 if [[ $subdomain_resp == true ]]; then
 
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3000 serveo.net  2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=yes -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3000 serveo.net  2> /dev/null > sendlink ' &
 
 sleep 8
 else
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3000 serveo.net 2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=yes -o ServerAliveInterval=60 -R 80:localhost:3000 serveo.net 2> /dev/null > sendlink ' &
 
 sleep 8
 fi
@@ -165,10 +165,10 @@ fi
 fi
 
 printf "\e[1;92m[\e[0m+\e[1;92m] Starting php server...\n"
-php -S 127.0.0.1:3333 > /dev/null 2>&1 & 
+php -S 127.0.0.1:3000 > /dev/null 2>&1 & 
 sleep 2
 printf "\e[1;92m[\e[0m+\e[1;92m] Starting ngrok server...\n"
-./ngrok http 3333 > /dev/null 2>&1 &
+./ngrok http 3000 > /dev/null 2>&1 &
 sleep 10
 
 link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
